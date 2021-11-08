@@ -44,8 +44,6 @@ class FavoriteActivity : AppCompatActivity() {
                 adapter.setOnButtonClickCallback(object : FavoriteUserAdapter.OnItemClickCallback {
                     override fun onItemClicked(data: Favorite) {
                         favoriteViewModel.delete(data)
-                        finish()
-                        startActivity(intent)
                     }
                 }
                 )
