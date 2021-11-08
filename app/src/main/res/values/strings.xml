@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Github User</string>
+    <string name="username">Username</string>
+    <string name="follower">Follower</string>
+    <string name="follower_amount">999</string>
+    <string name="following">Following</string>
+    <string name="following_amount">999</string>
+    <string name="url">Url</string>
+    <string name="name">Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="content_tab_home">Tab Fragment</string>
+    <string name="data_user">Data User</string>
+    <string name="company">Company</string>
+    <string name="location">Location</string>
+    <string name="repository">Repository</string>
+    <string name="github_s_users">Github User </string>
+    <string name="favorite">Favorite</string>
+    <string name="action_favorite">Favorite</string>
+    <string name="action_setting">Setting</string>
+    <string name="error">Terjadi Error</string>
+    <string name="item_favorite">Item Favorite</string>
+    <string name="dark_mode">Dark Mode</string>
+</resources>
