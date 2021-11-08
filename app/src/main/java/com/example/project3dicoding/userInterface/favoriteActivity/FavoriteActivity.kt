@@ -49,7 +49,7 @@ class FavoriteActivity : AppCompatActivity() {
                 )
             }
             if (favoriteList.isEmpty())
-            Toast.makeText(this, "Favorite Kosong", Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.VISIBLE else View.GONE
         })
     }
 
