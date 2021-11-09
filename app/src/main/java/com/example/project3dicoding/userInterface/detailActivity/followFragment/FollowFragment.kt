@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.project3dicoding.userInterface.adapter.FavoriteUserAdapter
 import com.example.project3dicoding.getAPI.FollowResponse
 import com.example.project3dicoding.databinding.FragmentFollowBinding
 import com.example.project3dicoding.userInterface.adapter.GithubUserAdapter
@@ -46,11 +45,21 @@ class FollowFragment : Fragment() {
             DetailUserViewModel::class.java)
 
         detailUserViewModel.responseBodyFollower.observe(viewLifecycleOwner) {user ->
-            setFollowData(user)
+            if (user.isEmpty())
+                isFollowEmpty(true)
+            else {
+                isFollowEmpty(false)
+                setFollowData(user)
+            }
         }
 
         detailUserViewModel.responseBodyFollowing.observe(viewLifecycleOwner) {user ->
-            setFollowData(user)
+            if (user.isEmpty())
+                isFollowEmpty(true)
+            else {
+                isFollowEmpty(false)
+                setFollowData(user)
+            }
         }
 
         detailUserViewModel.isLoading.observe(viewLifecycleOwner){
@@ -87,5 +96,9 @@ class FollowFragment : Fragment() {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun isFollowEmpty(isFollowEmpty : Boolean) {
+        binding.tvDataKosong.visibility = if (isFollowEmpty)View.VISIBLE else View.GONE
     }
 }

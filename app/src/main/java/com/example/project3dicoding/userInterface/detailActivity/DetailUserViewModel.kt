@@ -27,6 +27,9 @@ class DetailUserViewModel : ViewModel() {
     private val _isError = MutableLiveData<Boolean>()
     val isError: LiveData<Boolean> = _isError
 
+    private val _isEmpty = MutableLiveData<Boolean>()
+    val isEmpty: LiveData<Boolean> = _isEmpty
+
     companion object{
         private const val TAG = "DetailViewModel"
     }
@@ -107,4 +110,5 @@ class DetailUserViewModel : ViewModel() {
             }
         })
     }
+
 }

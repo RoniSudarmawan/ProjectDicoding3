@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.project3dicoding.database.Favorite
@@ -23,14 +22,21 @@ class FavoriteActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val favoriteViewModel = obtainViewModel(this@FavoriteActivity)
+        showLoading(true)
         favoriteViewModel.getAllFavorite().observe(this, { favoriteList ->
+            showLoading(false)
+
+            if (favoriteList.isEmpty())
+                isFavoriteEmpty(true)
+            else
+                isFavoriteEmpty(false)
+
             if (favoriteList != null) {
                 adapter = FavoriteUserAdapter(favoriteList)
 
                 binding.rvListFavorite.layoutManager = LinearLayoutManager(this)
                 binding.rvListFavorite.setHasFixedSize(true)
                 binding.rvListFavorite.adapter = adapter
-                showLoading(false)
 
                 adapter.setOnItemClickCallback(object : FavoriteUserAdapter.OnItemClickCallback {
                     override fun onItemClicked(data: Favorite) {
@@ -48,9 +54,11 @@ class FavoriteActivity : AppCompatActivity() {
                 }
                 )
             }
-            if (favoriteList.isEmpty())
-                binding.progressBar.visibility = View.VISIBLE else View.GONE
         })
+    }
+
+    private fun isFavoriteEmpty(isFavoriteEmpty : Boolean) {
+        binding.tvDataKosong.visibility = if (isFavoriteEmpty)View.VISIBLE else View.GONE
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): FavoriteViewModel {

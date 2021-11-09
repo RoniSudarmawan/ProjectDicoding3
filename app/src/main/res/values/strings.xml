@@ -22,4 +22,5 @@
     <string name="item_favorite">Item Favorite</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="data_favorite_kosong">Data Favorite Kosong</string>
+    <string name="data_follow_kosong">Data Follow Kosong</string>
 </resources>
